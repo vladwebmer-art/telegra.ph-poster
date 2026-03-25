@@ -17,6 +17,17 @@ $telegraph = new Telegraph($token);
 $account = $telegraph->account();
 
 try {
+
+    $resultsDirectory = dirname($result);
+    //If results directory doesn't exist lets create it.
+    if (!is_dir($resultsDirectory)) {
+        if (mkdir($resultsDirectory, 0755, true)) {
+            echo "Directory created: $resultsDirectory\n";
+        } else {
+            throw new CsvException("Can not create directory: $resultsDirectory\n");
+        }
+    }
+
     $reader = Reader::from( $source, 'r');
     $reader->setHeaderOffset(0);
     $records = $reader->getRecords();
