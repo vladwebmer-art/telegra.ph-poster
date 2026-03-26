@@ -54,7 +54,7 @@ try {
             date('Y-m-d')
         ];
     }
-    //No headers needed for new file
+    //No headers needed for not empty file
     if(filesize($result) === 0) {
         $headers = ['Title', 'Author', 'URL', 'Date'];
         array_unshift($recordsToWrite, $headers);
