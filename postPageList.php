@@ -68,6 +68,7 @@ try {
     CannotInsertRecord|
     CsvException $exception) {
     echo $exception->getMessage();
+    exit;
 }
 
 echo 'Pages have been inserted successfully!';
