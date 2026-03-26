@@ -55,7 +55,7 @@ try {
         ];
     }
     //No headers needed for new file
-    if(!file_exists($result)) {
+    if(filesize($result) === 0) {
         $headers = ['Title', 'Author', 'URL', 'Date'];
         array_unshift($recordsToWrite, $headers);
     }
